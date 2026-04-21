@@ -1,0 +1,13 @@
+EC2: 3&4
+  ssh -i key.pem ubuntu@<public-ip>
+sudo apt update && sudo apt upgrade -y
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+sudo apt install php libapache2-mod-php -y
+sudo apt install python3-pip -y
+pip3 install flask
+sudo nano /var/www/html/index.php
+<?php
+echo "Hello World from AWS Cloud!";
+?>
