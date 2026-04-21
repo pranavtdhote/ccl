@@ -11,3 +11,4 @@ sudo nano /var/www/html/index.php
 <?php
 echo "Hello World from AWS Cloud!";
 ?>
+https://chatgpt.com/share/69e78a27-91bc-83e8-9d13-1c09c73a16e2
