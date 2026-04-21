@@ -1,0 +1,84 @@
+wsl
+sudo apt update
+sudo apt install ansible -y
+ansible --version
+
+
+Step 3: Create Hosts File
+Run:
+nano hosts
+
+Write:
+[webservers]
+localhost ansible_connection=local
+
+Step 4: Create Playbook
+nano install_nginx.yml
+
+Paste:
+
+- name: Install Nginx Web Server
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Update apt repository
+      apt:
+        update_cache: yes
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+Run:
+ansible-playbook -i hosts install_nginx.yml
+localhost:80
+
+if this not work then
+Step 5: Run Playbook
+ansible-playbook -i hosts install_nginx.yml --ask-become-pass
+
+Enter your password.
+
+Step 6: Output
+
+You saw:
+
+ok=3
+changed=0 or 1
+failed=0
+
+👉 This means Nginx installed successfully.
+
+Step 7: Problem You Faced
+Apache was already running on port 80
+Nginx could not start
+Browser showed Apache page
+Step 8: Solution (Change Port)
+
+You changed Nginx to port 8082
+
+Edit Config File
+sudo nano /etc/nginx/sites-available/default
+
+
+Save file.
+
+Step 9: Restart Nginx
+sudo pkill nginx
+sudo nginx
+Step 10: Verify Port
+sudo ss -tulpn | grep 8082
+
+You got:
+
+nginx running on 8082
+Step 11: Open Browser
+
+Correct URL:
+
+http://localhost:8082
+Expected Output
+Welcome to nginx!
+Final Result
