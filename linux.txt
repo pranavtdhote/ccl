@@ -1,0 +1,28 @@
+1. File & Directory Commands 
+ls 
+pwd 
+mkdir cloud 
+cd cloud 
+touch file1.txt 
+cp file1.txt file2.txt 
+mv file2.txt backup.txt 
+rm file1.txt 
+2. File Viewing & Editing 
+cat backup.txt 
+nano backup.txt 
+vi backup.txt 
+3. Permissions & Ownership 
+ls -l 
+chmod 755 backup.txt 
+chown user:user backup.txt 
+4. Process Management 
+ps 
+top 
+kill <PID> 
+5. Networking Commands 
+ip a 
+ping google.com 
+netstat -tuln 
+6. Package Management 
+sudo apt update 
+sudo apt install nginx
