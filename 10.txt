@@ -1,0 +1,8 @@
+ip a
+ifconfig
+sudo apt install openssh-server -y
+sudo systemctl start ssh
+sudo systemctl enable ssh
+nano testfile.txt
+scp testfile.txt user@192.168.1.20:/home/user/
+rsync -av testfile.txt user@192.168.1.20:/home/user/
