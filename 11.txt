@@ -1,0 +1,175 @@
+Experiment 11
+Transfer Files Using Shared Folder / GUI Tool
+Aim
+
+To transfer files between host and virtual machines using shared folders and GUI-based tools such as WinSCP.
+
+Theory
+
+In virtualization environments, file transfer between host systems and virtual machines is often required.
+
+A shared folder allows files to be accessed by both the host system and the virtual machine without using network transfer tools.
+
+GUI-based tools such as WinSCP provide an easy interface for transferring files between systems using secure protocols like SSH.
+
+Shared folders are commonly supported by virtualization platforms such as:
+
+Oracle VM VirtualBox
+VMware Workstation
+
+These tools simplify file transfer in local lab environments.
+
+Requirements
+Virtual machine installed using Oracle VM VirtualBox or VMware Workstation
+Linux virtual machine
+Host operating system (Windows/Linux/macOS)
+File to transfer
+Procedure
+Step 1: Create a Shared Folder on Host System
+
+Create a folder on the host machine.
+
+Example:
+
+Shared_Folder
+
+Place a file inside this folder.
+
+Example file:
+
+sample.txt
+Step 2: Configure Shared Folder in Virtual Machine
+
+Open the virtualization software.
+
+Example: Oracle VM VirtualBox
+
+Select the virtual machine.
+Click Settings.
+Go to:
+Shared Folders
+Click Add new shared folder.
+
+Configure the following:
+
+Folder path : Shared_Folder
+Folder name : shared
+Auto-mount : Enabled
+Make permanent : Enabled
+
+Click OK.
+
+Step 3: Start the Virtual Machine
+
+Start the Linux virtual machine.
+
+After login, the shared folder will automatically appear.
+
+Example location:
+
+/media/sf_shared
+Step 4: Access Shared Folder in Linux VM
+
+Open terminal and navigate to the folder:
+
+cd /media/sf_shared
+
+List files:
+
+ls
+
+You should see:
+
+sample.txt
+Step 5: Copy File to VM
+
+Copy the file from shared folder to home directory:
+
+cp sample.txt ~/sample.txt
+
+Verify file:
+
+ls
+Step 6: Transfer Files Using WinSCP (Optional)
+
+Install WinSCP on the host machine.
+
+Open WinSCP and configure connection.
+
+Example configuration:
+
+File protocol : SFTP
+Host name : VM IP Address
+Port number : 22
+Username : user
+Password : password
+
+Click Login.
+
+WinSCP will show two panels:
+
+Left panel → Host files
+Right panel → VM files
+
+Files can be transferred using drag and drop.
+
+Output
+
+The file sample.txt is successfully transferred between the host machine and the virtual machine using shared folder or WinSCP.
+
+Commands Used
+cd /media/sf_shared
+ls
+cp sample.txt ~/sample.txt
+Result
+
+Files were successfully transferred between the host system and virtual machine using shared folders and GUI-based tools.
+
+Viva Voce Questions and Answers
+1. What is a shared folder?
+
+A shared folder is a directory that can be accessed by both the host system and virtual machine for easy file transfer.
+
+2. Difference between SCP and shared folder
+SCP	Shared Folder
+Requires network connection	Works locally inside virtualization
+Command-line based	Direct folder access
+Uses SSH	Uses virtualization features
+3. What is WinSCP?
+
+**WinSCP is a graphical file transfer tool used to transfer files between a local computer and remote servers using secure protocols.
+
+4. Advantages of GUI-based file transfer tools
+
+Advantages include:
+
+Easy drag-and-drop interface
+User-friendly
+No command-line knowledge required
+5. Is shared folder secure?
+
+Shared folders are secure in local environments but should be configured carefully to avoid unauthorized access.
+
+6. When is cloud storage used for file transfer?
+
+Cloud storage is used when files need to be transferred between systems located in different networks or geographic locations.
+
+7. Which virtualization tools support shared folders?
+
+Examples include:
+
+Oracle VM VirtualBox
+VMware Workstation
+8. Difference between host-to-VM and VM-to-VM transfer
+Host-to-VM	VM-to-VM
+Files transferred from host system to virtual machine	Files transferred between two virtual machines
+9. What protocol does WinSCP use?
+
+**WinSCP uses secure protocols such as:
+
+SFTP
+SCP
+FTP
+10. Which method is best for local labs?
+
+Shared folders are usually the best method for local labs because they are simple and do not require network configuration.
