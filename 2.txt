@@ -1,0 +1,88 @@
+Step 1: Update the System
+
+Open the terminal and update the system packages:
+
+sudo apt update
+
+Upgrade installed packages:
+
+sudo apt upgrade -y
+Step 2: Install Git
+
+Install Git which is required to download DevStack:
+
+sudo apt install git -y
+
+Verify installation:
+
+git --version
+Step 3: Download DevStack
+
+Clone the DevStack repository from GitHub:
+
+git clone https://opendev.org/openstack/devstack
+
+Move into the DevStack directory:
+
+cd devstack
+Step 4: Create Configuration File
+
+Create a configuration file named local.conf:
+
+nano local.conf
+
+Add the following configuration:
+
+[[local|localrc]]
+ADMIN_PASSWORD=admin
+DATABASE_PASSWORD=admin
+RABBIT_PASSWORD=admin
+SERVICE_PASSWORD=admin
+
+Save and exit the file.
+
+Step 5: Install OpenStack
+
+Run the DevStack installation script:
+
+./stack.sh
+
+The installation process may take 20–30 minutes.
+
+DevStack will automatically install and configure OpenStack services.
+
+Step 6: Access OpenStack Dashboard
+
+Once installation is completed, open a web browser and enter:
+
+http://localhost/dashboard
+
+This opens the **OpenStack Horizon dashboard.
+
+Login using the following credentials:
+
+Username : admin
+Password : admin
+Step 7: Explore OpenStack Dashboard
+
+After login, you can access different OpenStack services such as:
+
+Compute instances
+Storage volumes
+Networking configurations
+Security groups
+
+The dashboard provides a graphical interface to manage the private cloud.
+
+Output
+
+The OpenStack Horizon dashboard successfully loads in the browser, confirming that the private cloud environment has been installed.
+
+Commands Used
+sudo apt update
+sudo apt upgrade -y
+sudo apt install git -y
+git clone https://opendev.org/openstack/devstack
+cd devstack
+nano local.conf
+./stack.sh
